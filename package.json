@@ -1,0 +1,21 @@
+{
+  "name": "mint-nft-providejs",
+  "version": "1.0.0",
+  "description": "Mint an NFT for with Provide.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "nft",
+    "provide",
+    "nodejs"
+  ],
+  "author": "Ryan Fleischmann",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.1.4",
+    "provide-js": "^1.10.0"
+  },
+  "type": "module"
+}
