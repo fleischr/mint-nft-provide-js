@@ -1,6 +1,7 @@
 import { Ident } from "provide-js";
 import { Vault } from "provide-js";
 import { NChain } from "provide-js";
+import { readFile } from "fs/promises";
 import 'dotenv/config';
 
 console.log("begin NFT mint run");
@@ -76,8 +77,7 @@ nft_contract_create.params = { argv: [],
                                compiled_artifact: {
                                     abi: nftABI,
                                 }
-                             };
-                             
+                             };                            
 
 const NFT_CONTRACT = await NCHAIN_PROXY.createContract(nft_contract_create);
 console.log(NFT_CONTRACT);
@@ -86,14 +86,33 @@ const accounts = await NCHAIN_PROXY.fetchAccounts();
 const network_account = accounts.results.filter( network_account => network_account.networkId === selected_network );
 console.log(network_account);
 
+
+var execute_contract_by_account = {};
+execute_contract_by_account.account_id = network_account[0].id;
+execute_contract_by_account.method = 'openMint';
+execute_contract_by_account.params = [];
+execute_contract_by_account.vaule = 0;
+
 // execute contract method
-const NFT_SAFEMINT_RESP = await NCHAIN_PROXY.executeContract(NFT_CONTRACT.id, {
-        account_id : network_account[0].id,
-        method: 'openMint',
-        params: [],
-        value: 0,
-});
+const NFT_SAFEMINT_RESP = await NCHAIN_PROXY.executeContract(NFT_CONTRACT.id, execute_contract_by_account);
 
 console.log(NFT_SAFEMINT_RESP);
+
+const NFT_MINT_STATUS = await NCHAIN_PROXY.fetchTransactionDetails(NFT_SAFEMINT_RESP.ref);
+
+var blockexplorerlink = "";
+switch(selected_network) {
+    case celo_alfajores:
+        blockexplorerlink = "https://alfajores.celoscan.io/tx/" + NFT_MINT_STATUS.hash;
+        break;
+    case polygon_mumbai:
+        blockexplorerlink = "https://mumbai.polygonscan.com/tx" + NFT_MINT_STATUS.hash;
+        break;
+    default:
+        blockexplorerlink = "Hash:" + NFT_MINT_STATUS.hash;
+}
+
+console.log("See block explorer");
+console.log(blockexplorerlink);
 
 console.log("end NFT mint run");
