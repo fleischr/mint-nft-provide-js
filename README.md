@@ -31,8 +31,11 @@ Celo Alfajores : https://faucet.celo.org/alfajores
 ![Celo Alfajores Faucet](./images/alfajores_faucet.PNG)
 
 Testnet faucet links
+
 [Polygon Mumbai](https://faucet.polygon.technology/)
+
 [Celo Alfajores](https://faucet.celo.org/alfajores)
+
 VeChain - more info soon
 
 ## Mint your NFT
@@ -46,8 +49,11 @@ You'll see a link to the block explorer in your terminal output
 ## Other info
 
 This example uses a sample ERC-721 contract already deployed here
+
 [Polygon Mumbai](https://mumbai.polygonscan.com/address/0x4e9915b2ff6679c63a290645b589794d89584e5c)
+
 [Celo Alfajores](https://alfajores.celoscan.io/address/0x7e7c0eb2074f499f9010ad3b7c6a20edf9e3346c)
+
 VeChain - coming soon! 
 
 These contracts use the OpenZeppelin ERC721 smart contract template. Check out https://remix.ethereum.org!
@@ -55,3 +61,7 @@ These contracts use the OpenZeppelin ERC721 smart contract template. Check out h
 For demonstration purposes, we created an un-whitelisted openMint method. Feel free to try this example out with other NFT minting contracts with more advanced whitelisting criteria. Keep in mind the wallet address generated from Shuttle would have to be permitted to mint.
 
 Interested in minting a NFT in SAP ABAP on S/4 HANA ? Check out [this repo!](https://github.com/fleischr/abap-nft)
+
+## Questions, Issues, Contact
+
+Contact me - Ryan Fleischmann at ryan@provide.services or simply open an issue in this repo
