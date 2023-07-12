@@ -39,6 +39,10 @@ VeChain - more info soon
 
 Run ```node mintnft``` in you console and see your NFT minted on chain!
 
+You'll see a link to the block explorer in your terminal output 
+
+![Celo Alfajores block explorer example](./images/alfajores_blockexplorer.PNG)
+
 ## Other info
 
 This example uses a sample ERC-721 contract already deployed here
