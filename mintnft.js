@@ -91,7 +91,7 @@ var execute_contract_by_account = {};
 execute_contract_by_account.account_id = network_account[0].id;
 execute_contract_by_account.method = 'openMint';
 execute_contract_by_account.params = [];
-execute_contract_by_account.vaule = 0;
+execute_contract_by_account.value = 0;
 
 // execute contract method
 const NFT_SAFEMINT_RESP = await NCHAIN_PROXY.executeContract(NFT_CONTRACT.id, execute_contract_by_account);
